@@ -23,7 +23,6 @@ public class Course implements Serializable {
         this.imgGrayUri = imgGrayUri;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
