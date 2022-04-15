@@ -74,6 +74,10 @@ public class Offer implements Serializable {
         this.course = course;
     }
 
+    public List<Resource> getResources() {
+        return resources;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
