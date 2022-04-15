@@ -14,3 +14,6 @@ INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('SpringBoot', 'https
 INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('HTML', 'https://images.velog.io/images/lsb156/post/28ff204a-5ef1-4e25-915a-5afc3984c018/2574193B5944E17A26.png', 'https://images.velog.io/images/lsb156/post/28ff204a-5ef1-4e25-915a-5afc3984c018/2574193B5944E17A26.png');
 
 INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('1.0', TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', 1);
+INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('1.0', TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', 2);
+
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id) VALUES ('Trilha de Aulas', 'Certificado 160h', 1, 'https://raw.githubusercontent.com/devsuperior/bds-assets/main/img/student.png', 1, 'tkh', 1)
