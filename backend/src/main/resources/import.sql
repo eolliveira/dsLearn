@@ -20,3 +20,6 @@ INSERT INTO tb_resource (title, description, position, img_Uri, type, external_L
 
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Introdução', 'Descriçaõ do capitulo e o que será ensinado', 1, 'https://images.velog.io/images/lsb156/post/28ff204a-5ef1-4e25-915a-5afc3984c018/2574193B5944E17A26.png', 1, null)
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo - 1', 'Descriçaõ do capitulo e o que será ensinado', 2, 'https://images.velog.io/images/lsb156/post/28ff204a-5ef1-4e25-915a-5afc3984c018/2574193B5944E17A26.png', 1, 1)
+
+
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', null, true, false)
