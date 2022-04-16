@@ -1,5 +1,6 @@
 package com.example.dslearn.entities;
 
+import javax.persistence.Column;
 import java.time.Instant;
 
 public class Task extends Lesson{
@@ -8,6 +9,7 @@ public class Task extends Lesson{
     private Integer questionCount;
     private Integer approvalCount;
     private Double weigth;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant dueDate;
 
 }
