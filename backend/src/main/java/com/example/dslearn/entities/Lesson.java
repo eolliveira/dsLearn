@@ -2,20 +2,32 @@ package com.example.dslearn.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_Lesson")
-public class Lesson implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Lesson implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private Integer position;
-
     @ManyToOne
     @JoinColumn(name = "section_id")
     private Section section;
+
+    @ManyToMany
+    @JoinTable(name = "tb_lessons_done",
+            joinColumns = @JoinColumn(name = "lesson_id"),
+            inverseJoinColumns = {
+                @JoinColumn(name = "user_id"),
+                @JoinColumn(name = "offer_id")
+            }
+    )
+    private Set<Enrollment> enrollmentsDone = new HashSet<>();
 
     public Lesson(){}
 
@@ -58,6 +70,9 @@ public class Lesson implements Serializable {
         this.section = section;
     }
 
+    public Set<Enrollment> getEnrollmentsDone() {
+        return enrollmentsDone;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
