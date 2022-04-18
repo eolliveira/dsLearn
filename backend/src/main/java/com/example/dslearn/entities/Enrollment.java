@@ -21,7 +21,7 @@ public class Enrollment {
     private boolean onlyUpdate;
 
     @ManyToMany(mappedBy = "enrollmentsDone")
-    private Set<Lesson> lessonsDone = new HashSet<>();
+    private final Set<Lesson> lessonsDone = new HashSet<>();
 
     public Enrollment() {}
 

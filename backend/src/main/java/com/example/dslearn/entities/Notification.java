@@ -3,6 +3,7 @@ package com.example.dslearn.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Objects;
 
 @Entity
 @Table(name = "tb_notification")
@@ -12,24 +13,23 @@ public class Notification implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String text;
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
     private Boolean read;
     private String route;
-    @ManyToOne()
+
+
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-
     public Notification(){}
 
-    public Notification(Long id, String text, Instant moment, Boolean read, String route, User user) {
+    public Notification(Long id, String text, Instant moment, Boolean read, String route) {
         this.id = id;
         this.text = text;
         this.moment = moment;
         this.read = read;
         this.route = route;
-        this.user = user;
     }
 
     public Long getId() {
@@ -84,14 +84,12 @@ public class Notification implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Notification that = (Notification) o;
-
         return id.equals(that.id);
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return Objects.hash(id);
     }
 }

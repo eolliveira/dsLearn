@@ -33,4 +33,5 @@ public class Content extends Lesson{
     public void setVideoUri(String videoUri) {
         this.videoUri = videoUri;
     }
+
 }
