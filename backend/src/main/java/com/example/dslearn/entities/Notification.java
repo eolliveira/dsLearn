@@ -8,13 +8,13 @@ import java.util.Objects;
 @Entity
 @Table(name = "tb_notification")
 public class Notification implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String text;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
-    private Boolean read;
+    private boolean read;
     private String route;
 
     @ManyToOne
@@ -55,14 +55,6 @@ public class Notification implements Serializable {
         this.moment = moment;
     }
 
-    public Boolean getRead() {
-        return read;
-    }
-
-    public void setRead(Boolean read) {
-        this.read = read;
-    }
-
     public String getRoute() {
         return route;
     }
@@ -77,6 +69,14 @@ public class Notification implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean read) {
+        this.read = read;
     }
 
     @Override

@@ -10,7 +10,6 @@ import java.util.Set;
 @Entity
 @Table(name = "tb_enrollment")
 public class Enrollment {
-
     @EmbeddedId
     private EnrollmentPk id = new EnrollmentPk();
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")

@@ -8,7 +8,6 @@ import java.time.Instant;
 @Entity
 @Table(name = "tb_task")
 public class Task extends Lesson{
-
     private String description;
     private Integer questionCount;
     private Integer approvalCount;

@@ -13,15 +13,35 @@ public class Topic implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    @Column(columnDefinition = "TEXT")
     private String body;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
 
     @ManyToOne
     @JoinColumn(name = "offer_id")
     private Offer offer;
 
+    @ManyToOne
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private User author;
+
+    @ManyToOne
+    @JoinColumn(name = "reply_id")
+    private Reply answer;
+
     @OneToMany(mappedBy = "topic")
     private Set<Reply> replies = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(name = "tb_topic_likes",
+            joinColumns = @JoinColumn(name = "topic_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private Set<User> likes = new HashSet<>();
 
     public Topic(){}
 
@@ -66,6 +86,42 @@ public class Topic implements Serializable {
 
     public Set<Reply> getReplies() {
         return replies;
+    }
+
+    public Offer getOffer() {
+        return offer;
+    }
+
+    public void setOffer(Offer offer) {
+        this.offer = offer;
+    }
+
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public Reply getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Reply answer) {
+        this.answer = answer;
+    }
+
+    public Set<User> getLikes() {
+        return likes;
     }
 
     @Override

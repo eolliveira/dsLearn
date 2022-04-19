@@ -1,7 +1,6 @@
 package com.example.dslearn.entities;
 
 import javax.persistence.*;
-import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,6 @@ public class Section implements Serializable {
     @ManyToOne
     @JoinColumn(name = "resource_id")
     private Resource resource;
-
     @ManyToOne
     @JoinColumn(name = "prerequisite_id")
     private Section prerequisite;
@@ -94,6 +92,10 @@ public class Section implements Serializable {
 
     public void setPrerequisite(Section prerequisite) {
         this.prerequisite = prerequisite;
+    }
+
+    public List<Lesson> getLessons() {
+        return lessons;
     }
 
     @Override
