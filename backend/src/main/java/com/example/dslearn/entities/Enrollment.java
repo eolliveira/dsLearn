@@ -23,6 +23,9 @@ public class Enrollment {
     @ManyToMany(mappedBy = "enrollmentsDone")
     private final Set<Lesson> lessonsDone = new HashSet<>();
 
+    @OneToMany(mappedBy = "enrollment")
+    private final Set<Deliver> deliveries = new HashSet<>();
+
     public Enrollment() {}
 
     public Enrollment(User user, Offer offer, Instant enrollMoment, Instant refundMoment, boolean available, boolean onlyUpdate) {
@@ -80,6 +83,14 @@ public class Enrollment {
 
     public void setOnlyUpdate(boolean onlyUpdate) {
         this.onlyUpdate = onlyUpdate;
+    }
+
+    public Set<Lesson> getLessonsDone() {
+        return lessonsDone;
+    }
+
+    public Set<Deliver> getDeliveries() {
+        return deliveries;
     }
 
     @Override

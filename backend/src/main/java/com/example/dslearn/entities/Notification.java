@@ -17,7 +17,6 @@ public class Notification implements Serializable {
     private Boolean read;
     private String route;
 
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

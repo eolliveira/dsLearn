@@ -3,6 +3,8 @@ package com.example.dslearn.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_offer")
@@ -18,6 +20,9 @@ public class Offer implements Serializable {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+
+    @OneToMany(mappedBy = "offer")
+    private Set<Topic> topics = new HashSet<>();
 
     public Offer() {
     }
