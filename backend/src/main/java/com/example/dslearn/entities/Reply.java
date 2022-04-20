@@ -21,15 +21,15 @@ public class Reply implements Serializable {
     @JoinColumn(name = "topic_id")
     private Topic topic;
 
-    @ManyToMany
-    @JoinTable(name = "tb_topic_likes",
-            joinColumns = @JoinColumn(name = "topic_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<User> likes = new HashSet<>();
-
     @ManyToOne
     @JoinColumn(name = "author_id")
     private User author;
+
+    @ManyToMany
+    @JoinTable(name = "tb_reply_likes",
+            joinColumns = @JoinColumn(name = "reply_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private Set<User> likes = new HashSet<>();
 
     public Reply(){}
 
