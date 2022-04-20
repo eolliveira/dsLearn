@@ -3,8 +3,11 @@ package com.example.dslearn.entities;
 import com.example.dslearn.pk.EnrollmentPk;
 
 import javax.persistence.*;
+import java.awt.*;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,7 +26,7 @@ public class Enrollment {
     private final Set<Lesson> lessonsDone = new HashSet<>();
 
     @OneToMany(mappedBy = "enrollment")
-    private final Set<Deliver> deliveries = new HashSet<>();
+    private final List<Deliver> deliveries = new ArrayList<>();
 
     public Enrollment() {}
 
@@ -88,7 +91,7 @@ public class Enrollment {
         return lessonsDone;
     }
 
-    public Set<Deliver> getDeliveries() {
+    public List<Deliver> getDeliveries() {
         return deliveries;
     }
 

@@ -3,7 +3,9 @@ package com.example.dslearn.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -35,7 +37,7 @@ public class Topic implements Serializable {
     private Reply answer;
 
     @OneToMany(mappedBy = "topic")
-    private Set<Reply> replies = new HashSet<>();
+    private List<Reply> replies = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "tb_topic_likes",
@@ -84,10 +86,6 @@ public class Topic implements Serializable {
         this.moment = moment;
     }
 
-    public Set<Reply> getReplies() {
-        return replies;
-    }
-
     public Offer getOffer() {
         return offer;
     }
@@ -122,6 +120,10 @@ public class Topic implements Serializable {
 
     public Set<User> getLikes() {
         return likes;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
     }
 
     @Override
