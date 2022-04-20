@@ -31,7 +31,7 @@ public class Topic implements Serializable {
     private User author;
 
     @ManyToOne
-    @JoinColumn(name = "reply_id")
+    @JoinColumn(name = "answer_id")
     private Reply answer;
 
     @OneToMany(mappedBy = "topic")

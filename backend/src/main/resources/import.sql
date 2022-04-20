@@ -36,3 +36,13 @@ INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (2, '04-02 Visão ge
 
 INSERT INTO tb_lesson (section_id, title, position) VALUES (1, 'Atividade para entregar', 3)
 INSERT INTO tb_task (id, description, question_Count, approval_Count, weigth, due_Date) VALUES (3, 'Primeira tarefas do capitulo', 5, 4, 1.0, TIMESTAMP WITH TIME ZONE '2022-07-14T10:00:00Z')
+
+INSERT INTO tb_deliver (user_id, offer_id, lesson_id, uri, moment, status, feedback, correct_Count) VALUES (1, 1, 1, 'https://github.com/', TIMESTAMP WITH TIME ZONE '2022-07-14T10:00:00Z', 1, 'Comentario da lição', 10)
+INSERT INTO tb_deliver (user_id, offer_id, lesson_id, uri, moment, status, feedback, correct_Count) VALUES (1, 1, 2, 'https://github.com/', TIMESTAMP WITH TIME ZONE '2022-07-14T10:00:00Z', 2, 'Comentario da lição', 10)
+
+INSERT INTO tb_notification (user_id, text, moment, read, route) VALUES (1, 'Tarefa Avaliada!', TIMESTAMP WITH TIME ZONE '2022-07-14T10:00:00Z', 1, '')
+INSERT INTO tb_notification (user_id, text, moment, read, route) VALUES (2, 'Tarefa Rejeitada!', TIMESTAMP WITH TIME ZONE '2022-07-14T10:00:00Z', 1, '')
+INSERT INTO tb_notification (user_id, text, moment, read, route) VALUES (2, 'Tarefa Avaliada!', TIMESTAMP WITH TIME ZONE '2022-07-14T10:00:00Z', 1, '')
+
+INSERT INTO tb_topic (author_id, offer_id, lesson_id, answer_id, title, body, moment) VALUES (1, 1, 1, null, 'Erro a rodar o projeto erro: xxxxxx', 'Mensagem de erro', TIMESTAMP WITH TIME ZONE '2022-07-14T10:00:00Z')
+INSERT INTO tb_topic (author_id, offer_id, lesson_id, answer_id, title, body, moment) VALUES (2, 1, 2, null, 'Erro a rodar o projeto erro: xxxxxx', 'Mensagem de erro', TIMESTAMP WITH TIME ZONE '2022-07-14T10:00:00Z')
