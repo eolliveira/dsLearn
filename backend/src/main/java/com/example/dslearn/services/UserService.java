@@ -20,10 +20,14 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository repository;
 
+    @Autowired
+    private AuthService authService;
+
     private static Logger logger = LoggerFactory.getLogger(UserService.class);
 
     @Transactional
     public UserDTO findById(Long id){
+        authService.validateSelfOrAdmin(id);
         Optional<User> opt = repository.findById(id);
         User user = opt.orElseThrow(() -> new ResourcesNotFoundException("Resource id: " + id + " not found"));
         return new UserDTO(user);
@@ -36,7 +40,6 @@ public class UserService implements UserDetailsService {
             logger.error("User not found: " + email);
             throw new UsernameNotFoundException("Email not found");
         }
-
         logger.info("User found: " + email);
         return user;
     }
