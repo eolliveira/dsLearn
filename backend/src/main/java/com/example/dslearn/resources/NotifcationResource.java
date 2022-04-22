@@ -1,6 +1,6 @@
 package com.example.dslearn.resources;
 
-import com.example.dslearn.resources.dto.NotificationDTO;
+import com.example.dslearn.dto.NotificationDTO;
 import com.example.dslearn.services.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,7 +18,7 @@ public class NotifcationResource {
 
     @GetMapping
     public ResponseEntity<Page<NotificationDTO>> notificacoesPorUser(Pageable pageable) {
-        Page<NotificationDTO> dto = service.notificacoesPorUsuario(pageable);
+        Page<NotificationDTO> dto = service.notificationsForCurrentUser(pageable);
         return ResponseEntity.ok().body(dto);
     }
 }

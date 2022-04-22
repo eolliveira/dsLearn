@@ -1,6 +1,6 @@
 package com.example.dslearn.services;
 
-import com.example.dslearn.resources.dto.NotificationDTO;
+import com.example.dslearn.dto.NotificationDTO;
 import com.example.dslearn.entities.Notification;
 import com.example.dslearn.entities.User;
 import com.example.dslearn.repositories.NotificationRepository;
@@ -20,7 +20,7 @@ public class NotificationService {
     private AuthService authService;
 
     @Transactional
-    public Page<NotificationDTO> notificacoesPorUsuario(Pageable pageable){
+    public Page<NotificationDTO> notificationsForCurrentUser(Pageable pageable){
         User user = authService.authenticated();
         Page<Notification> notifications = repository.findByUser(user, pageable);
         return notifications.map(NotificationDTO::new);
