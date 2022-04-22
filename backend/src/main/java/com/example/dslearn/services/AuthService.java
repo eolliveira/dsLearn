@@ -10,12 +10,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
-
     @Autowired
     private UserRepository repository;
 
     //obtem usuario autenticado
-    private User authenticated() {
+    public User authenticated() {
         try {
             String username = SecurityContextHolder.getContext().getAuthentication().getName();
             User user = repository.findByEmail(username);

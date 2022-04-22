@@ -1,6 +1,6 @@
 package com.example.dslearn.services;
 
-import com.example.dslearn.dto.UserDTO;
+import com.example.dslearn.resources.dto.UserDTO;
 import com.example.dslearn.entities.User;
 import com.example.dslearn.repositories.UserRepository;
 import com.example.dslearn.services.excepions.ResourcesNotFoundException;

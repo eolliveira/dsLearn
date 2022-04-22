@@ -1,6 +1,6 @@
 package com.example.dslearn.resources;
 
-import com.example.dslearn.dto.UserDTO;
+import com.example.dslearn.resources.dto.UserDTO;
 import com.example.dslearn.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

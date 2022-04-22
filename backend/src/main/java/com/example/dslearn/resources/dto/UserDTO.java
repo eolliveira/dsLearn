@@ -1,4 +1,4 @@
-package com.example.dslearn.dto;
+package com.example.dslearn.resources.dto;
 
 import com.example.dslearn.entities.Notification;
 import com.example.dslearn.entities.Role;
