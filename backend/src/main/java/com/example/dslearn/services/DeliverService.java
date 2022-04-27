@@ -5,6 +5,7 @@ import com.example.dslearn.entities.Deliver;
 import com.example.dslearn.repositories.DeliverRepository;
 import com.example.dslearn.services.excepions.ResourcesNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -16,6 +17,7 @@ public class DeliverService {
     @Autowired
     private DeliverRepository repository;
 
+    @PreAuthorize("hasAnyRole('ADMIN','INSTRUCTOR')")
     @Transactional
     public void SaveRevision(Long id, DeliverRevisionDTO dto){
         Optional<Deliver> opt = repository.findById(id);
