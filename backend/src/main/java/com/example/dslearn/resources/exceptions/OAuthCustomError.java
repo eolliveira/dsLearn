@@ -8,14 +8,14 @@ public class OAuthCustomError implements Serializable {
 
     private String error;
 
-    @JsonProperty(value = "erro_description")
-    private String erroDescription;
+    @JsonProperty(value = "error_description")
+    private String errorDescription;
 
     public OAuthCustomError(){}
 
-    public OAuthCustomError(String error, String erroDescription) {
+    public OAuthCustomError(String error, String errorDescription) {
         this.error = error;
-        this.erroDescription = erroDescription;
+        this.errorDescription = errorDescription;
     }
 
     public String getError() {
@@ -26,11 +26,11 @@ public class OAuthCustomError implements Serializable {
         this.error = error;
     }
 
-    public String getErroDescription() {
-        return erroDescription;
+    public String getErrorDescription() {
+        return errorDescription;
     }
 
-    public void setErroDescription(String erroDescription) {
-        this.erroDescription = erroDescription;
+    public void setErrorDescription(String errorDescription) {
+        this.errorDescription = errorDescription;
     }
 }

@@ -12,24 +12,19 @@ public class UserDTO {
     private Long id;
     private String name;
     private String email;
-    private String password;
-    public List<Role> roles = new ArrayList<>();
-    public List<Notification> notifications = new ArrayList<>();
 
     public UserDTO(){}
 
-    public UserDTO(Long id, String name, String email, String password) {
+    public UserDTO(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
     }
 
     public UserDTO(User entity) {
         this.id = entity.getId();
         this.name = entity.getName();
         this.email = entity.getEmail();
-        this.password = entity.getPassword();
     }
 
     public Long getId() {
@@ -56,19 +51,4 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public List<Notification> getNotifications() {
-        return notifications;
-    }
 }
